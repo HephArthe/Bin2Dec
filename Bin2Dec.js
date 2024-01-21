@@ -30,10 +30,8 @@ function bin2dec(num){
     i=0;
     dec=0;
     while(num>0){
-        console.log((num%10)*(2**i));
         dec = dec + ((num%10)*(2**i));
         num = Math.round(num/10);
-        console.log(dec);
         i++;
     }
     result.style.display = "block"
@@ -44,6 +42,14 @@ function bin2dec(num){
 
 convert.addEventListener("click", function(){
     if(verify()==1){
-    bin2dec(bin.value)
+    bin2dec(bin.value);
     }
 })
+
+convert.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      if (verify() == 1) {
+        bin2dec(bin.value);
+      }
+    }
+  });
